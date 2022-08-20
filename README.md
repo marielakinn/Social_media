@@ -34,7 +34,21 @@ However, in debating the many machine learning modules, we were torn on which co
 ### Dashboard: 
 
 ## Selecting our Model: 
-### Option 1: 
+### Stand-In Model, Neural Network:
+#### Loading our Data:
+In this first step, we loaded our uncleaned version of the CSV. Our approach was to drop as many columns with Nan values or confidential information that would not serve as important features in our predictive model. 
+But from a broader perspective, we simply needed to reduce the amount of noise in our data, and confirm if a neural network is a lost-cause in terms of its predictive accuracy on the "leads" column. 
+![load data](https://user-images.githubusercontent.com/102266450/185756802-4194f18d-8bde-417b-b0d8-b0fe04c3a626.gif)
+#### Dropping Columns:
+Next, we ran a simple pandas dataframe check to see the the amount of data and types, per column. As a group, we understood that at this stage, we are less concerned with cleaning within each column, and were able to identify a drop from 52 to 17 total columns for the purpose of a stand-in model: 
+![drop columns](https://user-images.githubusercontent.com/102266450/185756942-f277d817-10ee-4327-b05f-2d1c7f1096b7.gif)
+#### Reduction of Brands: 
+We did however experiment with dropping the "B3" row values within the "brand" column. With over 200,000 rows of data, we thought it best to only compare B1 vs B2, so that our model is not overwhelmed by the unclean data sheet. 
+Our approach was to create a simple for loop that checked for the number of unique values, returned its name, and then leveraging the "loc" function our dataframe to remove any rows equal to "B3" designations: 
+![reduction to b1+2](https://user-images.githubusercontent.com/102266450/185757049-841728b9-5fdd-4bbe-8b83-c7fec4dbad69.gif)
+Lastly, here is the process of dropping the B3 rows and the noisy columns: 
+![dropped B3+noisy columns](https://user-images.githubusercontent.com/102266450/185757090-08b241da-24f6-4d9c-b77f-868f78a328dd.gif)
+
 #### Training Approach:
 #### Measuring Accuracy: 
 
