@@ -30,6 +30,7 @@ CREATE TABLE us_regions (
 	Division varchar
 );
 
+<<<<<<< HEAD
 SELECT * FROM us_regions;
 
 -- Creating tables for Visits2021
@@ -39,3 +40,6 @@ CREATE TABLE visits (
 );
 
 SELECT * FROM visits;
+=======
+SELECT * FROM us_regions;
+>>>>>>> aba59a38f873cb912bf2d527f21eae61934f077d
