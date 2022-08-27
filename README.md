@@ -1,13 +1,37 @@
 # Social_media Project
 # SEGMENT 1: 
-Everything below follows the first segement requirements, to be filled by 28 August 2022. 
-## Meet our team: 
+Everything below follows the first segment requirements, to be filled by 28 August 2022. 
+
+## Meet Team 10: 
+
+- Izzy Diaz
+- Rashid Abdella
+- Mariela Kinn
+- Michaela Austin
 
 ## Team Roles and Standards: 
+
+Team 10 split the project into two subgroups: Machine Learning (Izzy and Rashid) and Database Creation (Mariela and Michaela). Due to the nature of partner work, we did not split branches out by individual. Instead, we created branches based on specific tasks (i.e. cleaningBranch, practiceML). 
+
+During segment 1, Mariela and Michaela used Pandas to clean the dataset, removing null values, duplicates, and excess columns. Then, they connected Python to PostgresSQL in order to store the data. In SQL, they created fourth tables-- one from the cleaned primary dataset, and three from three additional datasets (us_regions, visits, and seasons. They used left join to combine the datasets. 
+
+The team of 4 worked together to determine which columns were most important to include in the model. 
+
+Izzy and Rashid used the clean dataset to build out a draft machine learning model. With the data loaded, they worked to employ several different methods of binning. (xx add more ML work summary).
+
+All team members work to troubleshoot challenges through the following methods: office hours, tutoring sessions, reviewing past modules, and internet research (i.e. slack overflow).
+
 ### Communication Protocols: 
 
+Our team has maintained a collaborative approach to the project by checking in with each other daily. In addition to meeting during set class time, all team members participate in extended working sessions on the weekends. Ongoing communication helps team members stay apprised of eachother’s work, and also helps avoid git conflicts. Specific methods of communication include: Slack messages, huddles, and Zoom meetings.
+
 ## Our Topic, Initial Thoughts: 
-PLACEHOLDER--- why did we select this topic?
+Topic: Digital marketing spend in 3 different fitness studios/concepts
+
+Reason we selected topic: Team 10 is interested in why X company's desire to be more strategic with their spend on digital marketing advertisement. The company currently own 3 brands and have little-to-zero visibility on agency performance. This project will explore which features are most predictive of a brand's success.
+
+Data Source: CSV files obtained directly from X company, anonymized for confidentiality purposes. The original CSV includes several columns
+
 
 ## Primary Question:
 This project concerns itself with the following question: Within the state of X or the country of X, can we predict the amount of leads based off the following features (spend, ad type, impressions)?
@@ -64,6 +88,8 @@ Lastly, here is the process of dropping the B3 rows and the noisy columns:
 
 
 ## Limitations to the Dataset and Model: 
+
+## Draft Presentation: [GoogleSlides](https://docs.google.com/presentation/d/1znRkusDe7-G68lACfZTGBikjaQkrRGYngHLJKc4Vmec/edit#slide=id.p)
 
 
 
