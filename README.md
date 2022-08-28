@@ -73,7 +73,27 @@ Our approach was to create a simple for loop that checked for the number of uniq
 Lastly, here is the process of dropping the B3 rows and the noisy columns: 
 ![dropped B3+noisy columns](https://user-images.githubusercontent.com/102266450/185757090-08b241da-24f6-4d9c-b77f-868f78a328dd.gif)
 
-#### Training Approach:
+#### Continued Cleaning Approach:
+##### Binning: 
+After reducing the 'brand' column, we did a quick df.info() to check on the remaining columns: state, brand, spend, platform, date start, impressions, leads, link clicks, reach and agency. 
+Of these columns, we checked the unique values in each, scanning for numbers greater than 10, on the non-numeric columns of interest such as: agency, date start, and state: 
+
+Then, we checked with "value_counts()" function on each of these three columns. The process for the "state" column is shown below: 
+
+To bin effectively, we debated an external tool such as "OptBinning" which sets equal bins; but ultimately favored following a similar process to the model and expanded to a "Tier" system: 
+
+In general, our density plot (see below) showed the tail trailing off to the right, and we decided to use a groupby on our state column with the impressions column. In this process, we returned the value counts attached by state, and then did a simple merge created the following: 
+
+After this, we created the "state tiers" column, showing binning from 0-1000, 1000-5000, 5000-10000, and lastly anything towards the upper limit of 40000: 
+
+Upon doing this step, we did a quick on the current dataframe, but more importantly, here is how the state column "value counts" changed: 
+
+You can see that we removed a signficant amount of datapoints by dropping the Nan values, as well as properly attached the following states to a Tier designation, 1-4: 
+
+Thereafter, we replicated a very similar process for the agency column, and then leveraged a join between the SQL table "seasons" and our dataframe column "date_start". 
+
+#### Splitting Test and Train Variables:
+
 #### Measuring Accuracy: 
 
 #### Sample Process: 
