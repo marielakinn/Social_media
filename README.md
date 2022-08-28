@@ -51,11 +51,18 @@ Initially, by leveraging our primary dataset, we knew the target would either fa
 However, in debating the many machine learning modules, we were torn on which columns provided the most tangible meaning to predict or affect our target. A common question held was: How do we weight one column over another, such as the number of impressions vs the total spend on an ad?
 
 ## Technologies Used: 
-### Data Cleaning:
-### Analysis:
-### Database Storage: 
+### Data Cleaning, Exploration, and Analysis:
+Pandas is the Python library we used to clean the data and perform exploratory analysis.
+
+### Database Storage:
+We are using pgAdmin to store the data.
+ 
 ### Machine Learning: 
+SciKitLearn is the ML library we are using to create a classifier.
+
+
 ### Dashboard: 
+We will be using Tableau to display our findings.
 
 ## Selecting our Model: 
 ### Stand-In Model, Neural Network:
