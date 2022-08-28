@@ -77,18 +77,21 @@ Lastly, here is the process of dropping the B3 rows and the noisy columns:
 ##### Binning: 
 After reducing the 'brand' column, we did a quick df.info() to check on the remaining columns: state, brand, spend, platform, date start, impressions, leads, link clicks, reach and agency. 
 Of these columns, we checked the unique values in each, scanning for numbers greater than 10, on the non-numeric columns of interest such as: agency, date start, and state: 
+![unique vals](https://user-images.githubusercontent.com/102266450/187090865-8c34a305-e8c4-4267-b195-113910cbf1d0.gif)
 
 Then, we checked with "value_counts()" function on each of these three columns. The process for the "state" column is shown below: 
+![state value counts](https://user-images.githubusercontent.com/102266450/187090872-e22e6def-c8f3-412b-a5c3-ac8b51aae1fc.gif)
 
-To bin effectively, we debated an external tool such as "OptBinning" which sets equal bins; but ultimately favored following a similar process to the model and expanded to a "Tier" system: 
+To bin effectively, we debated an external tool such as "OptBinning" which sets equal bins; but ultimately favored following a similar process to the model and expanded to a "Tier" system.
 
 In general, our density plot (see below) showed the tail trailing off to the right, and we decided to use a groupby on our state column with the impressions column. In this process, we returned the value counts attached by state, and then did a simple merge created the following: 
+![merge state counts](https://user-images.githubusercontent.com/102266450/187090886-bc0f31cd-78af-4957-908c-4dd29806e220.gif)
 
 After this, we created the "state tiers" column, showing binning from 0-1000, 1000-5000, 5000-10000, and lastly anything towards the upper limit of 40000: 
-
-Upon doing this step, we did a quick on the current dataframe, but more importantly, here is how the state column "value counts" changed: 
+![tiers](https://user-images.githubusercontent.com/102266450/187090894-d09ffc7a-8f18-40d6-a09e-ed0137af429b.gif)
 
 You can see that we removed a signficant amount of datapoints by dropping the Nan values, as well as properly attached the following states to a Tier designation, 1-4: 
+![tiers check](https://user-images.githubusercontent.com/102266450/187090908-02a5b87c-6fc9-46de-84ec-c47d39057bab.gif)
 
 Thereafter, we replicated a very similar process for the agency column, and then leveraged a join between the SQL table "seasons" and our dataframe column "date_start". 
 
