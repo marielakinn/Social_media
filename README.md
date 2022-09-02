@@ -1,6 +1,6 @@
 # Social_media Project
-# SEGMENT 1: 
-Everything below follows the first segment requirements, to be filled by 28 August 2022. 
+# SEGMENT 2: 
+This README provides an overview of the work completed in segment one and two (and much of segment three). 
 
 ## Meet Team 10: 
 
@@ -9,15 +9,16 @@ Everything below follows the first segment requirements, to be filled by 28 Augu
 - Mariela Kinn
 - Michaela Austin
 
-## Team Roles and Standards: 
+## Team Roles, Standards, and Summary of Work: 
 
 Team 10 split the project into two subgroups: Machine Learning (Izzy and Rashid) and Database Creation (Mariela and Michaela). Due to the nature of partner work, we did not split branches out by individual. Instead, we created branches based on specific tasks (i.e. cleaningBranch, practiceML). 
 
-During segment 1, Mariela and Michaela used Pandas to clean the dataset, removing null values, duplicates, and excess columns. Then, they connected Python to PostgresSQL in order to store the data. In SQL, they created fourth tables-- one from the cleaned primary dataset, and three from three additional datasets (us_regions, visits, and seasons. They used left join to combine the datasets. 
+During segment 1, Mariela and Michaela used Pandas to clean the dataset, removing null values, duplicates, and excess columns. Then, they connected Python to PostgresSQL in order to store the data. In SQL, they created fourth tables-- one from the cleaned primary dataset, and three from three additional datasets (us_regions, visits, and seasons. They used left join to combine the datasets. The team of 4 worked together to determine which columns were most important to include in the model. Izzy and Rashid used the clean dataset to build out a draft machine learning model. With the data loaded, they worked to employ several different methods of binning. 
 
-The team of 4 worked together to determine which columns were most important to include in the model. 
+During segment 2, Michaela and Mariela worked together to import the team's final csv into Tableau Public, and begin visualizing the data. They created twelve visualizations: Leads by Month, Spend by Month, Impressions by Month, Lead vs. Spend, Spend Distribution by Brand, Map Studio Count, Heatmap Spend, Agency Spend by Brand, CPL by Agency, CPL by Brand, MAP Cost Per Lead, and MAP Cost Per Impression. These interactive visualizations vary in type: bar charts, line charts, scatter plots, and maps. After completing the visualizations, they worked together to format and design the graphs so that they match the aesthetics of our Google Slides. Mariela and Michaela also further developed Google Slide content during this segment. 
 
-Izzy and Rashid used the clean dataset to build out a draft machine learning model. With the data loaded, they worked to employ several different methods of binning. (xx add more ML work summary).
+Izzy and Rashid were steeped in the machine learning model testing this week. They tested multiple models, including the logistic regression model. After receiving feedback from TAs and tutors, they implemented different methods to increase accuracy of the model. In particular, Izzy believed some columns were weighted differently, and were therefore skewing the ability to predict on our target. So, he received feedback to scale all numerical columns to remove the possibility of magnitude affecting the model categorical columns. Later, they completed a feature importance test which informed us that the model does not seem to think many/any of the columns are important predictors on leads. If anything, impressions had a slight importance. They received feedback to try only looking at one brand, one state, and retest to see if leads is a good target variable. So, Mariela and Michaela worked in pgAdmin to query an updated CSV for the machine learning model that includes only B1 brand and the state of CA, with the columns: leads, impressions, agency, reach, link clicks, spend, state, and brand. Rashid and Izzy will use this refined dataset for preprocessing and binning, with hopes that the model will run better.
+
 
 All team members work to troubleshoot challenges through the following methods: office hours, tutoring sessions, reviewing past modules, and internet research (i.e. slack overflow).
 
@@ -30,7 +31,7 @@ Topic: Digital marketing spend in 3 different fitness studios/concepts
 
 Reason we selected topic: Team 10 is interested in why X company's desire to be more strategic with their spend on digital marketing advertisement. The company currently own 3 brands and have little-to-zero visibility on agency performance. This project will explore which features are most predictive of a brand's success.
 
-Data Source: CSV files obtained directly from X company, anonymized for confidentiality purposes. The original CSV includes several columns
+Data Source: CSV files obtained directly from X company, anonymized for confidentiality purposes. The original CSV includes 56 columns and over 200 rows of data.
 
 
 ## Primary Question:
@@ -62,7 +63,7 @@ SciKitLearn is the ML library we are using to create a classifier.
 
 
 ### Dashboard: 
-We will be using Tableau to display our findings.
+We will be using Tableau Public to visualize our findings.
 
 ## Selecting our Model: 
 ### Stand-In Model, Neural Network:
@@ -114,12 +115,12 @@ Thereafter, we replicated a very similar process for the agency column, and then
 #### Sample Process: 
 
 ## Database Creation: 
-### ERD: 
+### ERD: [ERD](https://github.com/marielakinn/Social_media/blob/main/SQL%20Queries%20and%20ERD/ERD%20Table.xlsx)
 
 
 ## Limitations to the Dataset and Model: 
 
-## Draft Presentation: [GoogleSlides](https://docs.google.com/presentation/d/1znRkusDe7-G68lACfZTGBikjaQkrRGYngHLJKc4Vmec/edit#slide=id.p)
+## Draft Presentation(UPDATED 9/2/2022): [GoogleSlides](https://docs.google.com/presentation/d/1znRkusDe7-G68lACfZTGBikjaQkrRGYngHLJKc4Vmec/edit#slide=id.p)
 
 
 
