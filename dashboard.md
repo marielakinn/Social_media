@@ -4,11 +4,11 @@ dashboard.md
 
 ### Storyboard on Google Slides 
 
-- See Dashboard_Storyboard.pdf
+- See [Dashboard_Storyboard.pdf](https://github.com/marielakinn/Social_media/blob/main/Dashboard_Storyboard.pdf)
 
 ### Description of the tools that will be used to create final dashboard 
 
-- We will be importing the final CSV (clean_df3.csv) into Tableau Public to create a final dashboard.
+- We will be importing the [final CSV](clean_df3.csv) into Tableau Public to create a final dashboard.
 
 ### Description of interactive elements
 
@@ -22,8 +22,8 @@ dashboard.md
 - Agency Spend by Brand
 - CPL by Agency
 - CPL by Brand
-- MAP CPL
-- MAP CPI
+- MAP Cost Per Lead
+- MAP Cost Per Impression
 
 
 
