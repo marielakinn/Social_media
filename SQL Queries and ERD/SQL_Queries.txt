@@ -1,0 +1,60 @@
+
+-- Exported joined table to csv to use in Tableau
+COPY (SELECT clean_data2.state, clean_data2.brand, clean_data2.spend, clean_data2.platform, clean_data2.impressions, clean_data2.leads, clean_data2.reach, clean_data2.agency, 
+	seasons.season, 
+	us_regions.region, us_regions.division
+FROM clean_data2
+LEFT JOIN seasons
+ON clean_data2.date_start = seasons.date
+LEFT JOIN us_regions
+ON clean_data2.state = us_regions.state)
+TO 'C:\Users\marie\Desktop\Mariela\DATA BOOTCAMP\Final Project\joined_cleanData.csv' DELIMITER ',' CSV HEADER;
+
+
+-- Exported joined table with visits to csv to use in Tableau
+COPY (SELECT clean_data2.mapped_storeid, clean_data2.brand, clean_data2.state, clean_data2.agency, sum(clean_data2.spend) TotalSpend, sum(clean_data2.leads) Leads, sum(clean_data2.impressions) Impressions, sum(clean_data2.reach) Reach,
+	us_regions.region, us_regions.division,
+	visits.visits_2021
+FROM clean_data2
+LEFT JOIN us_regions
+ON clean_data2.state = us_regions.state
+LEFT JOIN visits
+ON clean_data2.mapped_storeid = visits.mapped_storeid
+GROUP BY clean_data2.mapped_storeid, clean_data2.brand, clean_data2.state, clean_data2.agency,
+	us_regions.region, us_regions.division,
+	visits.visits_2021)
+TO 'C:\Users\marie\Desktop\Mariela\DATA BOOTCAMP\Final Project\joined_visitsData.csv' DELIMITER ',' CSV HEADER;
+
+-- Final Export to Tableau V3
+SELECT clean_data2.state, 
+	  clean_data2.brand, 
+	  clean_data2.spend,
+	  clean_data2.mapped_storeid, 
+	  clean_data2.date_start, 
+	  clean_data2.impressions, 
+	  clean_data2.leads, 
+	  clean_data2.reach, 
+	  clean_data2.agency, 
+	  clean_data2.location_name, 
+	  us_regions.region, 
+	  us_regions.division, 
+	  seasons.season,
+	  visits.visits_2021
+FROM clean_data2
+LEFT JOIN us_regions
+ON clean_data2.state = us_regions.state
+LEFT JOIN seasons
+ON clean_data2.date_start = seasons.date
+LEFT JOIN visits
+ON clean_data2.mapped_storeid = visits.mapped_storeid;
+
+
+-- Extracting data for ML model
+SELECT state, brand, spend, impressions, leads, link_clicks, reach, agency
+FROM clean_data2
+WHERE state ='CA' AND brand='B2' AND reach IS NOT NULL; 
+
+-- Count null values in 'reach' column
+SELECT count(*)
+FROM clean_data2
+WHERE reach IS NULL AND state='CA' AND brand='B2';
