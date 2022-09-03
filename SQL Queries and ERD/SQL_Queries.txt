@@ -58,3 +58,18 @@ WHERE state ='CA' AND brand='B2' AND reach IS NOT NULL;
 SELECT count(*)
 FROM clean_data2
 WHERE reach IS NULL AND state='CA' AND brand='B2';
+
+-- Query for ML data containing all states, not just California, for B2
+SELECT state, brand, spend, impressions, leads, link_clicks, reach, agency
+FROM clean_data2
+WHERE brand='B2' AND reach IS NOT NULL; 
+
+-- Query for ML data containing all states, not just California, for B1
+SELECT state, brand, spend, impressions, leads, link_clicks, reach, agency
+FROM clean_data2
+WHERE brand='B1' AND reach IS NOT NULL; 
+
+-- Query for ML data containing all states, not just California, for B3
+SELECT state, brand, spend, impressions, leads, link_clicks, reach, agency
+FROM clean_data2
+WHERE brand='B3' AND reach IS NOT NULL; 
