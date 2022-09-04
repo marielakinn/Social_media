@@ -49,14 +49,16 @@ We started to dig deeper and eventually adopted the following notebooks:
 ###### View of our Preprocessing Book - CA + Brand 2: 
 Please note, we once again created our agency tier, but dropped the state tier as it was redundant. 
 Here is a view of the csv prior to new changes: 
+![df4 view](https://user-images.githubusercontent.com/102266450/188338301-4e57369f-8f6f-4588-9122-8e6c586ed18a.gif)
 
 Beyond this, we took the binning process a step forward and leverage a 'optbinning' library to estimate which column would have the most success, regardless of noise in the data and model type: 
+![woe bin](https://user-images.githubusercontent.com/102266450/188338306-e13327f4-99f5-44fa-903f-9c39cf18bb8d.gif)
 
 Above, we focused on the 'spend' column to map how our binning processed did; in this case we show negative correlation with the line drawn (we anticipate that the spend column will have some positive affect on the model in terms of predictions). The "woe" indicates the weight of evidence on each bin. We are essentially seeing if we can bin properly to test for events to occur!
 
 Next, we used the "scorecard" library, similar to the concepts in Optbinning package to check the "iv" or information value score for each of our columns, as it tires to bin and predict on leads. We found postive correlations in most of our columns, and were pleasantly surprised to find the most "indicative" column would be impressions or link clicks. 
 This logically makes sense, as we expect clicks to contribute as a metric towards a lead: 
-
+![woe bin all](https://user-images.githubusercontent.com/102266450/188338313-1b22e73e-cd13-4e7c-be0c-29e0d9a4226c.gif)
 
 Quick note: The IV is also known as the stastical distance from the bin, the "Divergence". 
 We observed that many of these columns showed promise, including the ones shown above! 
