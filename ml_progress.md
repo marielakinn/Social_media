@@ -68,3 +68,9 @@ Following the preprocessing notebooks and CSVs mentioned above, we currently sta
 We decided to use CA as it contained nearly 25,000 rows of data after the cleaning process and due to its consistent 55% mark regardless of modeling in the earlier stages. 
 For the next deliverable, in particular for the closing of our model focus we hope to test all states individually, with the designation of either brand 1, 2, or 3. 
 Our hope is to uncover if one of the brands contains lacking or noisy data and to also observe trends by states. Upon completion of these model tests, we expect to build a visualization explaining which state and brand benefited the most and least from our neural networks. 
+
+## Final Optimization
+### Neural Network Models: 
+### SVM Models: 
+![image](https://user-images.githubusercontent.com/102266450/189461068-c534888d-1d63-4f0e-8d89-18f9dfb01b8a.png)
+
