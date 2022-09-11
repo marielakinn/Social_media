@@ -66,7 +66,7 @@ Michaela and Mariela worked together to import the team's final CSV into Tableau
 
 ## Presentation: [Google Slides](https://docs.google.com/presentation/d/1znRkusDe7-G68lACfZTGBikjaQkrRGYngHLJKc4Vmec/edit#slide=id.p)
 
-## Tableau Dashboard: 
+## Tableau Dashboard: [Digital Marketing Spend Dashboard](https://public.tableau.com/app/profile/mariela.kinn.terrazas/viz/DigitalMarketingSpend/Background?publish=yes)
 
 
 
