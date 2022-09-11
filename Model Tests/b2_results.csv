@@ -1,0 +1,13 @@
+,State,Predictive Accuracy,Tier
+0,CA,0.8,T1
+1,FL,0.84,T1
+2,VA,0.78,T1
+3,GA,0.85,T2
+4,NY,0.83,T2
+5,NC,0.84,T2
+6,WA,0.78,T3
+7,NJ,0.79,T3
+8,CT,0.81,T3
+9,PA,1.0,T4
+10,NE,0.86,T4
+11,SD,0.95,T4

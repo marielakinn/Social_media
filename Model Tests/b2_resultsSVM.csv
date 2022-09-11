@@ -1,0 +1,5 @@
+,State,Predictive Accuracy,Tier
+0,CA,0.79,T1
+1,GA,0.81,T2
+2,WA,0.74,T3
+3,SD,0.93,T4
