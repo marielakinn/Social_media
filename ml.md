@@ -3,15 +3,19 @@
 Can we create a binary classifier on a target variable, leads, based off 4-5 columns/features? 
 ## Question: 
 For every campaign ad (one row of data), can we predict for if a lead will occur based off impressions, spend, clicks, and reach?
+
 ## ML Phase One:
 ### Deliverable 1: Stand-In Model
+
 #### Loading our Data:
 In this first step, we loaded our uncleaned version of the CSV. Our approach was to drop as many columns with Nan values or confidential information that would not serve as important features in our predictive model. 
 But from a broader perspective, we simply needed to reduce the amount of noise in our data, and confirm if a neural network is a lost-cause in terms of its predictive accuracy on the "leads" column. 
 ![load data](https://user-images.githubusercontent.com/102266450/185756802-4194f18d-8bde-417b-b0d8-b0fe04c3a626.gif)
+
 #### Dropping Columns:
 Next, we ran a simple pandas dataframe check to see the the amount of data and types, per column. As a group, we understood that at this stage, we are less concerned with cleaning within each column, and were able to identify a drop from 52 to 17 total columns for the purpose of a stand-in model: 
 ![drop columns](https://user-images.githubusercontent.com/102266450/185756942-f277d817-10ee-4327-b05f-2d1c7f1096b7.gif)
+
 #### Reduction of Brands: 
 We did however experiment with dropping the "B3" row values within the "brand" column. With over 200,000 rows of data, we thought it best to only compare B1 vs B2, so that our model is not overwhelmed by the unclean data sheet. 
 Our approach was to create a simple for loop that checked for the number of unique values, returned its name, and then leveraging the "loc" function our dataframe to remove any rows equal to "B3" designations: 
@@ -75,51 +79,59 @@ Our hope is to uncover if one of the brands contains lacking or noisy data and t
 
 ## ML Phase Three:
 ## Final Optimization
+
 ### General Note:
 In the final step, we narrowed our focus to brand 1, and created a notebook by ML focus: 
 'ML(NN)-B1', 'ML(SVM)-B1', 'ML(RF)-B1'. Although we did track and replicate a neural network, SVM, and random forest book for brands 2 and 3, we committed to brand 1 results as it included the most cumulative data. 
 Below you will find the process for the NN and RF models. Please note there are only slight differences in their approach, mainly after the splitting/training. We chose not to feature the SVM notebook here, but feel free to open it up within the "model tests" folder. 
+
 ### Filters: 
 Upon loading our cleaned data, we checked the value counts by state and began to test by state tiers. For instance, a tier 1 state would hold 5000+ datapoints, whereas a tier state could contain less than 500 data rows. 
 Here is an example as we loc by the state of Kentucky, a tier 2 state with 1200 datapoints: 
+![image](https://user-images.githubusercontent.com/102266450/189549979-3755ed97-4cf5-4a26-8a8b-4a114073b251.png)
 
 ### Training/Testing: 
 Our split, train, and scaling instances are excactly as shown in the module. 
 #### NN Model:
 However, here is the construction of our neural layers in the neural network: 
-
+![image](https://user-images.githubusercontent.com/102266450/189550019-6ae80e38-f72c-4e87-90eb-30b6b75975a0.png)
 One note---we did find that the best mix relied on a combination of relu/elu and hard sigmoid activation functions. Upon running, we stuck to 100 epochs and tested the keras library for activation functions. 
 #### RF Model:
-Here is the RF model split, with an "optimizer" line of code: 
-
 ##### Feature Importance Addition: 
 Unique to the RF algorithm is the feature importance module, which allowed us to confirm that the 'spend' column was the most important to predict on leads. Although we have scaled back to only four features here, we have considered expanding to a larger list of columns and checking the importance matrix again! 
 Here is the output for "importance": 
+![image](https://user-images.githubusercontent.com/102266450/189550053-05a3ba42-95f1-499f-838e-7698c4d780c7.png)
 
 ### Accuracy:
 #### NN Model:
 Lastly, we created a dictionary and displayed a dataframe to hold the state, accuracy, and tier designation accordingly: 
+![image](https://user-images.githubusercontent.com/102266450/189550074-c1b0db0b-37b3-4de6-9549-0bfdeee91470.png)
 
 In terms of results, we found a variance of results for state tiers and model accuracies. Although our lowest model accuracy was 74% for the state of NJ and NC; our highest accuracy came from KY, at 98%.
 
 #### RF Model: 
-Here are is the classification report, followed by our results dataframe: 
+Here are is the classification report (only state of KY as an example), followed by our results dataframe: 
+![image](https://user-images.githubusercontent.com/102266450/189550098-3669d165-4e36-4403-aa05-5b56f1110d18.png)
 
 #### SVM Model: 
 Although we have largely not tracked the process with our SVM model, we thought it relevant to at least display the following accuracy outputs:
+![image](https://user-images.githubusercontent.com/102266450/189550121-f3d796b8-fc96-4b4c-ba33-6162e551c65c.png)
 
 ### Making Sense of the Accuracy: 
 Although the results dataframe displayed accuracies by state and tier, we wanted to dig deeper into what these numbers meant. We leveraged tableau to create the bottom two visuals. Please note, we replicated the visuals for brand 1, neural network against the SVM and RF outputs: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550144-32721b34-d644-4030-83ea-2084a834039f.png)
+
 The accuracy reports between the three are nearly identical by state, with only a +-1% (more on this later). In terms of selecting models to run, we recommend random forest as it includes the feature importance code and runs faster than both the SVM and NN models. 
 
 ### Dashboard 1: Quick View
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550173-0b08ab54-a949-4c59-a0e1-6afcf287c273.png)
 In this first view, we can see each model mapped on the bottom axis, with their respective accuracy by state. Although this is only sampling one state by tier, in practice we explored nearly three states/tier. We found our accuracies to be consistent, showing only a percentage change by model of +-1%. 
+
 ### Dashboard 2: State Heatmap
 Although the above chart shows little variance in model accuracy, we then decided do a heatmap.
 Here we are displaying the neural network sampling of states and tiers: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550215-825b6c57-abf2-4428-bb9c-9d42088e1898.png)
+
 We did the same process for SVM and RF, but found no meaninful changes/differences. 
 However, we did find an odd irregularity in the tier 1 designation of California versus the state of Ohio. Both of these states contained 7000+ datapoints (each datapoint being one campaign ad). 
 
@@ -127,7 +139,7 @@ Yet, we see that the CA only hit about 78-79% predictive accuracy versus OH's 91
 
 ### Dashboard 3: Boxplot
 As a result, we moved away from the heatmap visual to a boxplot chart to check on our tier's average model accuracy: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550204-e1cd7636-b65a-4392-9843-de0e8ed740f8.png)
 We see less variance in tiers 3 and 4, but hold reservations on the amount of data/campaign ads ran. How appropriate is to compare tier 4 states (less than 1000 ads) to tier 1 (<7000 ads)?
 
 If we accept that tier 4 has enough data, then we can confidently recommend that due to its lower amount of variance from the lowest and highest performing states, it is optimal to include this in our model accuracies. 
@@ -142,11 +154,13 @@ This is by no means an attempt to dismiss our results, but we feel that the bina
 
 Once again, here is quick snapshot of the accuracies dataframes---
 NN Results: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550257-180f6814-bcff-47a6-8867-d179cc943e3d.png)
+
 SVM Results: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550246-40d48035-5513-4ffc-87b8-a788d9b360f5.png)
+
 RF Results: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550253-184c972c-3d0e-475a-aade-1616e14ec3d0.png)
 
 In order, NN, RF, and SVM when compared on overlaping states: 
-image.png
+![image](https://user-images.githubusercontent.com/102266450/189550237-fe9a7fbb-56a8-498c-aaff-876569d1b19a.png)
