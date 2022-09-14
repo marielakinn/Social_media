@@ -45,16 +45,21 @@ Michaela and Mariela worked together to import the team's final CSV into Tableau
 ### Tableau Findings
 - The systemwide CPL is $19.25
 - Brand 2 is the highest performing brand, as demonstrated by its low CPL($18.76)
+
 ![CPL_by_Brand.PNG](https://github.com/marielakinn/Social_media/blob/main/Images/CPL_by_Brand.PNG)
 - Agency 8 and Agency 3 are the highest performing agencies, with the lowest CPLs ($15.91 and $17.64 respectively)
+
 ![CPL_by_Agency.PNG](https://github.com/marielakinn/Social_media/blob/main/Images/CPL_by_Agency.PNG)
+
 - Winter is the most optimal season for digital marketing, as CPL decreases to an average of $17.52
 
 ### Machine Learning Findings
 - Random Forest Algorithm is the best model to predict leads
 - Highest accuracy came from KY, at 98%
 - Lowest model accuracy was 74% for the state of NJ and NC
+
 ![Accuracies](https://user-images.githubusercontent.com/102266450/189550257-180f6814-bcff-47a6-8867-d179cc943e3d.png)
+
 - All in all, this model truly indicates: leads predicted, to a certain % accuracy from a set of features including spend, clicks, and impressions.
 
 ## Limitations
